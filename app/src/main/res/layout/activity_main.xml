@@ -1,118 +1,52 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
-    tools:context=".MainActivity">
+    tools:context=".MainActivity"
+    android:orientation="vertical">
 
-    <TextView
+    <com.google.android.material.switchmaterial.SwitchMaterial
+        android:id="@+id/mostrarOpcoesSw"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="@string/selecione_uma_opcao"/>
-
-    <RadioGroup
-        android:id="@+id/opcaoRg"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal">
-
-        <RadioButton
-            android:id="@+id/parRB"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:checked="true"
-            android:text="@string/par"/>
-
-
-        <RadioButton
-            android:id="@+id/imparRB"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:text="@string/impar"/>
-
-    </RadioGroup>
-
-
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="@string/selecione_sua_jogada"/>
+        android:text="@string/mostrar_opcoes" />
 
     <LinearLayout
+        android:id="@+id/selecionarOpcaolL"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="horizontal">
+        android:orientation="vertical"
+        android:visibility="gone">
 
-        <ImageButton
-            android:id="@+id/zeroBt"
-            android:layout_width="0dp"
-            android:layout_height="64dp"
-            android:scaleType="fitCenter"
-            android:src="@mipmap/zero"
-            android:layout_marginHorizontal="5dp"
-            android:layout_weight="1"
-            android:onClick="onClick"
-            android:text="@string/zero" />
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/selecione_uma_opcao" />
 
-        <ImageButton
-            android:id="@+id/umBt"
-            android:layout_width="0dp"
-            android:layout_height="64dp"
-            android:scaleType="fitCenter"
-            android:src="@mipmap/one"
-            android:layout_weight="1"
-            android:onClick="onClick"
-            android:layout_marginHorizontal="5dp"
-            android:text="@string/um"/>
+        <RadioGroup
+            android:id="@+id/opcaoRg"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
 
-        <ImageButton
-            android:id="@+id/doisBt"
-            android:layout_width="0dp"
-            android:layout_height="64dp"
-            android:scaleType="fitCenter"
-            android:src="@mipmap/two"
-            android:layout_weight="1"
-            android:onClick="onClick"
-            android:layout_marginHorizontal="5dp"
-            android:text="@string/dois"/>
+            <RadioButton
+                android:id="@+id/parRb"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:checked="true"
+                android:text="@string/par" />
 
-        <ImageButton
-            android:id="@+id/tresBt"
-            android:layout_width="0dp"
-            android:layout_height="64dp"
-            android:scaleType="fitCenter"
-            android:src="@mipmap/three"
-            android:layout_weight="1"
-            android:onClick="onClick"
-            android:layout_marginHorizontal="5dp"
-            android:text="@string/tres"/>
+            <RadioButton
+                android:id="@+id/imparRb"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="@string/impar" />
+        </RadioGroup>
 
-        <ImageButton
-            android:id="@+id/quatroBt"
-            android:layout_width="0dp"
-            android:layout_height="64dp"
-            android:scaleType="fitCenter"
-            android:src="@mipmap/four"
-            android:layout_weight="1"
-            android:onClick="onClick"
-            android:layout_marginHorizontal="5dp"
-            android:text="@string/quatro"/>
-
-        <ImageButton
-            android:id="@+id/cincoBt"
-            android:layout_width="0dp"
-            android:layout_height="64dp"
-            android:scaleType="fitCenter"
-            android:src="@mipmap/five"
-            android:layout_weight="1"
-            android:onClick="onClick"
-            android:layout_marginHorizontal="5dp"
-            android:text="@string/cinco"/>
 
     </LinearLayout>
 
@@ -120,21 +54,100 @@
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="@string/jogada_do_computador"/>
+        android:text="@string/selecione_sua_jogada" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <ImageButton
+            android:id="@+id/zeroBt"
+            android:layout_width="0dp"
+            android:layout_height="64dp"
+            android:layout_marginHorizontal="5dp"
+            android:layout_weight="1"
+            android:onClick="onClick"
+            android:scaleType="fitCenter"
+            android:src="@mipmap/zero"
+            android:text="@string/zero" />
+
+        <ImageButton
+            android:id="@+id/umBt"
+            android:layout_width="0dp"
+            android:layout_height="64dp"
+            android:layout_marginHorizontal="5dp"
+            android:layout_weight="1"
+            android:onClick="onClick"
+            android:scaleType="fitCenter"
+            android:src="@mipmap/one"
+            android:text="@string/um" />
+
+        <ImageButton
+            android:id="@+id/doisBt"
+            android:layout_width="0dp"
+            android:layout_height="64dp"
+            android:layout_marginHorizontal="5dp"
+            android:layout_weight="1"
+            android:onClick="onClick"
+            android:scaleType="fitCenter"
+            android:src="@mipmap/two"
+            android:text="@string/dois" />
+
+        <ImageButton
+            android:id="@+id/tresBt"
+            android:layout_width="0dp"
+            android:layout_height="64dp"
+            android:layout_marginHorizontal="5dp"
+            android:layout_weight="1"
+            android:onClick="onClick"
+            android:scaleType="fitCenter"
+            android:src="@mipmap/three"
+            android:text="@string/tres" />
+
+        <ImageButton
+            android:id="@+id/quatroBt"
+            android:layout_width="0dp"
+            android:layout_height="64dp"
+            android:layout_marginHorizontal="5dp"
+            android:layout_weight="1"
+            android:onClick="onClick"
+            android:scaleType="fitCenter"
+            android:src="@mipmap/four"
+            android:text="@string/quatro" />
+
+        <ImageButton
+            android:id="@+id/cincoBt"
+            android:layout_width="0dp"
+            android:layout_height="64dp"
+            android:layout_marginHorizontal="5dp"
+            android:layout_weight="1"
+            android:onClick="onClick"
+            android:scaleType="fitCenter"
+            android:src="@mipmap/five"
+            android:text="@string/cinco" />
+
+    </LinearLayout>
+
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/jogada_do_computador" />
 
     <ImageView
         android:id="@+id/jogadaComputadorIv"
         android:layout_width="match_parent"
-        android:layout_height="64dp"/>
+        android:layout_height="64dp" />
 
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/resultado" />
 
     <TextView
         android:id="@+id/resultadoTv"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"/>
-
-
-
+        android:layout_height="wrap_content" />
 
 
 </LinearLayout>

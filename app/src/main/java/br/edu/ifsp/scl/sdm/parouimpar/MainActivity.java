@@ -1,35 +1,40 @@
 package br.edu.ifsp.scl.sdm.parouimpar;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.os.Bundle;
 import android.view.View;
-import android.widget.Button;
-import android.widget.RadioGroup;
-import android.widget.TextView;
+import android.widget.CompoundButton;
+
+import androidx.appcompat.app.AppCompatActivity;
 
 import java.util.Random;
 
 import br.edu.ifsp.scl.sdm.parouimpar.databinding.ActivityMainBinding;
 
-public class MainActivity extends AppCompatActivity   {
+public class MainActivity extends AppCompatActivity  {
         // Referencias para objetos de Ui no leioute
+
     private ActivityMainBinding activityMainBinding;
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        activityMainBinding = ActivityMainBinding.inflate(getLayoutInflater()
-        );
+        activityMainBinding = ActivityMainBinding.inflate(getLayoutInflater());
 
         setContentView(activityMainBinding.getRoot());
+
+        activityMainBinding.mostrarOpcoesSw.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton compoundButton, boolean mostrarOpcoes) {
+                activityMainBinding.selecionarOpcaolL.setVisibility( mostrarOpcoes? View.VISIBLE : View.GONE );
+            }
+        });
 
     }
 
 
     public void onClick(View view) {
-        int jogada = 1;
+        int jogada = -1;
         switch (view.getId()) {
             case R.id.zeroBt:
                 jogada = 0;
@@ -61,6 +66,7 @@ public class MainActivity extends AppCompatActivity   {
         int jogadaComputador = random.nextInt(6);
 
         // Setando imagem da jogada do computador
+
         int imagemJogadaComputadorId = -1;
         switch (jogadaComputador) {
             case 0:
@@ -95,7 +101,7 @@ public class MainActivity extends AppCompatActivity   {
         resultadoSB.append(",  Computador  ");
         resultadoSB.append(jogadaComputador);
 
-        if (activityMainBinding.parRB.isChecked()) {
+        if (activityMainBinding.parRb.isChecked()) {
             resultadoSB.append((jogada + jogadaComputador) % 2 == 0 ? " Você GANHOU! " : " Você PERDEU! ");
         }
         else {
